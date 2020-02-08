@@ -45,6 +45,7 @@ import java.lang.reflect.Field
  *
  * @author Ravindra Barthwal - https://github.com/ravindrabarthwal
  * @author Palash Bansal - https://github.com/palashbansal96
+ *
  * This amazing piece of code was born at https://mouve.app and still powers Mouve App
  */
 object FString {
