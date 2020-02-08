@@ -1,0 +1,37 @@
+apply plugin: 'com.jfrog.bintray'
+
+group 'com.ravindrabarthwal.fstring'
+version '1.0.0'
+
+project.ext {
+    mavGitUrl = 'https://github.com/ravindrabarthwal/FString.git'
+    mavProjectName = 'FString'
+    mavLibraryLicenses = ["Apache-2.0":'http://www.apache.org/licenses/LICENSE-2.0.txt']
+    mavLibraryDescription = "Dynamically updatable strings.xml wrapper for Android"
+    mavPublishToMavenLocal = true
+    mavSiteUrl = 'https://github.com/ravindrabarthwal/FString'
+}
+
+bintray {
+    user = System.getenv("BINTRAY_ID")
+    key = System.getenv("BINTRAY_API_KEY")
+    publications = ['Production']
+    configurations = ['archives']
+    override = true
+    pkg {
+        repo = 'com.ravindrabarthwal.fstring'
+        name = 'FString'
+        description = "Dynamically updatable strings.xml wrapper for Android"
+        publicDownloadNumbers = true
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/ravindrabarthwal/FString.git'
+        userOrg = "barthwal"
+        version {
+            name = this.version
+            desc = "Version ${this.version}"
+            released = new Date()
+            vcsTag = this.version
+        }
+    }
+}
+apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle'
