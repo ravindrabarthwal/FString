@@ -6,7 +6,7 @@
 [3.2]: https://github.com/palashbansal96
 
 # FString - Dynamically Updatable* strings.xml for Android
-FString provides an elegant solution for dynamically updating the strings.xml values. It uses a combination of Android **SharedPreferences**, **strings.xml** and **reflections** to dynamically update the values. By using FString, strings.xml existing value can be updated using JSON string without releasing a new version.
+FString provides an elegant solution for dynamically updating the strings.xml values. It uses a combination of Android **SharedPreferences**, **strings.xml** and **reflections** to dynamically update the values in SharedPreferences. By using FString, strings.xml existing value can be updated using JSON string without releasing a new version.
 
 FString stores the updated values in the SharedPreferences (as we can not update strings.xml directly). FString first checks the value in the SharedPreferences otherwise it returns the default value from the strings.xml
 
