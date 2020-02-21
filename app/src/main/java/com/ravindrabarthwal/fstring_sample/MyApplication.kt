@@ -15,6 +15,7 @@ class MyApplication : Application() {
             {
                 "test_2": "updated dynamically",
                 "test_1": "I'll be removed below",
+                "test_x": "%s %d Changed"
             }
         """.trimIndent()
 
@@ -25,6 +26,8 @@ class MyApplication : Application() {
                 "test_1"
             ]
         """.trimIndent()
+
+        //FString.clearAll(this)
 
         FString.clear(this, jsonStringToClear) // Clear the string "test_1"
     }

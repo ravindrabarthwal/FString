@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-version '1.0.0' // your library version
+version '1.0.1' // your library version
 group 'com.ravindrabarthwal.fstring' // whatever group name you'd like
 
 publishing {
@@ -29,6 +29,15 @@ publishing {
             }
         }
     }
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives sourcesJar
 }
 
 bintray {

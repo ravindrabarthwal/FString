@@ -115,6 +115,24 @@ object FString {
     }
 
     /**
+     *  Returns [String] from [resId] with formatted args.
+     *  Returns the value from the preference or default
+     *
+     *  @param context [Context]
+     *  @param resId [StringRes]
+     *  @param args [List]<[Any]?> formatArgs to format String
+     *
+     *  @return [String]
+     */
+    fun getString(context: Context, @StringRes resId: Int, args: List<Any?>): String {
+        val pref = getPref(context)
+        val key = makePrefKeyFromResId(context, resId)
+        val raw = pref.getString(key, "")
+        if(raw.isNullOrEmpty()) return context.getString(resId, *args.toTypedArray())
+        return String.format(raw, *args.toTypedArray())
+    }
+
+    /**
      * Returns a map of resId and resKey. Returns empty map if [resourceStringClass] and [resourceStringClass]
      * both are null else populates the [resourceStringMap] from [resourceStringClass] using reflection and
      * returns [resourceStringMap]
@@ -280,4 +298,14 @@ object FString {
  */
 fun Context.getFString(@StringRes resId: Int): String {
     return FString.getString(this, resId)
+}
+
+/**
+ * Extension function to get FString similar to getString
+ * @param resId [StringRes]
+ *
+ * @return [String]
+ */
+fun Context.getFString(resId: Int, args: List<Any?>): String {
+    return FString.getString(this, resId, args)
 }

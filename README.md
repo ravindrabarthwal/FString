@@ -1,6 +1,5 @@
 [1.1]: http://i.imgur.com/wWzX9uB.png (Twitter)
 [1.2]: http://i.imgur.com/9I6NRUm.png (GitHub)
-[1.3]: http
 [2.1]: https://twitter.com/ravinBarthwal
 [2.2]: http://www.github.com/ravindrabarthwal
 [3.2]: https://github.com/palashbansal96
@@ -13,7 +12,7 @@ FString stores the updated values in the SharedPreferences (as we can not update
 ## Installation 
 - In your project's module **build.gradle** add this dependency
   ```groovy
-  implementation 'com.ravindrabarthwal.fstring:fstring:1.0.0'
+  implementation 'com.ravindrabarthwal.fstring:fstring:1.0.1'
   ```
 - In your Android **Application** class add the following code 
   ```kotlin
@@ -40,6 +39,16 @@ FString stores the updated values in the SharedPreferences (as we can not update
     
     // If you prefer extension function use
     context.getFString(R.string.my_app_name) // This is how FString works ;)
+
+    // String with formatting args
+    // Eg. For StringRes <string name="my_app_version">MyApp %s</string>
+    context.getString(R.string.my_app_version, "v1.0") // This is how you normally use getString with args
+
+    // To get the same using FString use
+    FString.getString(context, R.string.my_app_version, listOf("v1.0"))
+
+    // If you prefer extension function use
+    context.getFString(R.string.my_app_version, listOf("v1.0"))
   ```
   
   **To update the FString values** 
@@ -86,16 +95,7 @@ FString stores the updated values in the SharedPreferences (as we can not update
   ```
   
 ## Limitations
-  - TODO: Currently string template is not supported. 
-  ```xml
-    // If strings.xml contains 
-    <string name="my_app_name">My App %s</string>
-  ```
-  ```kotlin
-    // Android provides varargs support. This is currently
-    // not supported by FString
-    context.getString(R.string.my_app_name, "v2.0")
-  ```
+All TODOs Fixed
   
 ## Contributors 
   - Ravindra Barthwal (Me) [![alt text][1.1]][2.1]  [![alt text][1.2]][2.2]
@@ -104,7 +104,7 @@ FString stores the updated values in the SharedPreferences (as we can not update
 ## Contribution Guideline
 Feel free to fork it and create a pull request.
 
-
+**You can support this project by clicking on star on top right. 🙏**
 
 
 *Made with ❤ at [Mouve - Animated Stories Creator for Instagram](https://mouve.app)*
